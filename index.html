@@ -1,0 +1,2035 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astro Satguru — Premium AI Vedic Astrology, Horoscopes & Sacred Shop</title>
+  <meta name="description"
+    content="Discover AI-curated horoscopes, Kundli, compatibility, expert astrologer consultations and sacred Vedic objects—crafted for the modern seeker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Tiro+Devanagari:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ================= Tokens ================= */
+    :root {
+      --ivory: #FBF7EF;
+      --cream: #F4ECDC;
+      --beige: #E8DCC4;
+      --gold: #B8893B;
+      --gold-light: #D4A857;
+      --gold-dark: #8C6620;
+      --espresso: #2A1F14;
+      --muted: #7A6A53;
+      --border: #E6D9BE;
+      --grad-gold: linear-gradient(135deg, #D4A857 0%, #B8893B 60%, #8C6620 100%);
+      --grad-cream: linear-gradient(180deg, #FBF7EF 0%, #F4ECDC 100%);
+      --shadow-soft: 0 6px 24px -10px rgba(74, 52, 20, .18);
+      --shadow-luxury: 0 24px 60px -24px rgba(74, 52, 20, .35);
+    }
+
+    /* ================= Reset ================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--espresso);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    /* ================= Type ================= */
+    .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: -.01em
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .text-gold {
+      color: var(--gold)
+    }
+
+    .gradient-gold-text {
+      background: var(--grad-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    /* ================= Layout ================= */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem
+    }
+
+    @media(min-width:768px) {
+      .container {
+        padding: 0 1.5rem
+      }
+    }
+
+    section {
+      padding: 5rem 0
+    }
+
+    @media(min-width:768px) {
+      section {
+        padding: 3rem 0
+      }
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto
+    }
+
+    .section-head h2 {
+      margin: .75rem 0 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1
+    }
+
+    /* ================= Buttons ================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: all .25s ease;
+      border: 1px solid transparent
+    }
+
+    .btn-gold {
+      background: var(--grad-gold);
+      color: #fff;
+      box-shadow: var(--shadow-soft)
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-luxury)
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      background: #fff
+    }
+
+    .btn-outline:hover {
+      background: var(--cream)
+    }
+
+    .btn-ghost-light {
+      border: 1px solid rgba(255, 255, 255, .4);
+      background: rgba(255, 255, 255, .1);
+      color: #fff;
+      backdrop-filter: blur(8px)
+    }
+
+    .btn-ghost-light:hover {
+      background: rgba(255, 255, 255, .2)
+    }
+
+    .btn-lg {
+      padding: .95rem 1.75rem;
+      font-size: .95rem
+    }
+
+    /* ================= Header ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 247, 239, .82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(230, 217, 190, .6)
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem
+    }
+
+    .logo-mark {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 9999px;
+      background: var(--grad-gold);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-soft);
+      font-size: .85rem
+    }
+
+    .nav-links {
+      display: none;
+      gap: 2rem;
+      font-size: .875rem;
+      font-weight: 500
+    }
+
+    .nav-links a {
+      color: rgba(42, 31, 20, .78)
+    }
+
+    .nav-links a:hover {
+      color: var(--espresso)
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .translate-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--grad-gold);
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+      transition: .3s;
+    }
+
+    .translate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .goog-te-banner-frame,
+    .goog-te-banner-frame.skiptranslate,
+    .goog-logo-link,
+    .goog-te-gadget,
+    .goog-te-combo,
+    .skiptranslate {
+      display: none !important;
+    }
+
+    body {
+      top: 0 !important;
+    }
+
+    .icon-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      transition: background .2s
+    }
+
+    .icon-btn:hover {
+      background: var(--cream)
+    }
+
+    @media(min-width:768px) {
+      .nav-links {
+        display: flex
+      }
+    }
+
+    /* ================= Ticker ================= */
+    .ticker-wrap {
+      overflow: hidden;
+      width: 100%;
+      background: rgba(42, 31, 20, .55);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(184, 137, 59, .4);
+      padding: .55rem 0;
+      position: absolute;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      z-index: 5;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 3rem;
+      white-space: nowrap;
+      animation: ticker 35s linear infinite;
+      width: max-content;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .ticker-item {
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .88);
+      letter-spacing: .01em;
+      flex-shrink: 0;
+    }
+
+    .ticker-item .sep {
+      margin: 0 1.5rem;
+      color: var(--gold-light);
+      opacity: .7;
+    }
+
+    /* ================= Hero ================= */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      padding: 0;
+      height: 100vh
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .hero-bg video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(42, 31, 20, .2) 0%, rgba(42, 31, 20, .35) 50%, rgba(42, 31, 20, .8) 100%)
+    }
+
+    .hero-inner {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 8rem 0 5rem;
+      color: var(--ivory);
+    }
+
+    .hero-copy {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(8px);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 1rem
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+      line-height: 1.05;
+      font-weight: 500;
+      max-width: 44rem;
+      margin: 0;
+      letter-spacing: -.02em;
+      white-space: nowrap
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-size: 1em;
+      background: var(--grad-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .hero p {
+      max-width: 36rem;
+      margin: 1.5rem 0 0;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, .85)
+    }
+
+    .hero-ctas {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem
+    }
+
+    /* ================= Pricing Banner ================= */
+    .pricing-banner {
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(14px);
+      border-radius: 1.25rem;
+      padding: 1.75rem 1.5rem;
+      min-width: 230px;
+      max-width: 800px;
+      position: relative;
+      box-shadow: 0 0 0 1.5px rgba(184, 137, 59, .55), 0 0 24px 4px rgba(184, 137, 59, .18);
+      animation: shimmer-border 3s ease-in-out infinite;
+      align-self: flex-end;
+      margin-bottom: .25rem;
+    }
+
+    @keyframes shimmer-border {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 1.5px rgba(184, 137, 59, .55), 0 0 24px 4px rgba(184, 137, 59, .18);
+      }
+
+      50% {
+        box-shadow: 0 0 0 2px rgba(212, 168, 87, .9), 0 0 40px 10px rgba(212, 168, 87, .28);
+      }
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .6rem .75rem;
+      border-radius: .75rem;
+      border: 1px solid rgba(255, 255, 255, .14);
+      margin-bottom: .5rem;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .price-row.best {
+      border-color: rgba(212, 168, 87, .6);
+      background: rgba(184, 137, 59, .2);
+    }
+
+    .price-label {
+      color: rgba(255, 255, 255, .85);
+      font-size: .8rem;
+      flex: 1
+    }
+
+    .price-amt {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #fff;
+      font-weight: 600
+    }
+
+    .best-tag {
+      font-size: .55rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      background: var(--grad-gold);
+      color: #fff;
+      padding: .2rem .55rem;
+      border-radius: 9999px;
+      font-weight: 700;
+    }
+
+    @media(max-width:767px) {
+      .pricing-banner {
+        max-width: 100%;
+      }
+    }
+
+    /* ================= Astrologer Float Strip ================= */
+    .astro-strip {
+      position: relative;
+      overflow: hidden;
+      height: 9.5rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .astro-float {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      animation: floatAstro 35s linear infinite;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    @keyframes floatAstro {
+      0% {
+        transform: translateY(-50%) translateX(0);
+      }
+
+      100% {
+        transform: translateY(-50%) translateX(-50%);
+      }
+    }
+
+    .astro-circle {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 9999px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 4px var(--cream);
+      transition: box-shadow .35s ease, border-color .35s ease;
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+    }
+
+    .astro-circle:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 0 0 6px rgba(184, 137, 59, .22), 0 0 22px 6px rgba(212, 168, 87, .35);
+    }
+
+    .astro-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .astro-strip-text p {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ================= Cards / Grids ================= */
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      transition: all .3s ease
+    }
+
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-luxury);
+      border-color: rgba(184, 137, 59, .4)
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    @media(min-width:768px) {
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .grid-3-md {
+      grid-template-columns: 1fr
+    }
+
+    @media(min-width:768px) {
+      .grid-3-md {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(min-width:1024px) {
+      .grid-3-md {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .two-col {
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: 1fr;
+      align-items: center
+    }
+
+    @media(min-width:768px) {
+      .two-col {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    /* ================= Concerns ================= */
+    /* ================= Concerns (REPLACE ALL PREVIOUS CONCERN CSS) ================= */
+
+    .concern {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 0 !important;
+      cursor: pointer;
+      min-height: 240px;
+    }
+
+    .concern-img-wrap {
+      width: 100%;
+      height: 120px;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .concern-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.45s ease, transform 0.55s ease;
+    }
+
+    .concern-body {
+      padding: 1.25rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+      transition: all 0.35s ease;
+    }
+
+    .concern-body p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      line-height: 1.3;
+      margin: 0;
+      color: var(--espresso);
+      transition: color 0.35s ease, font-size 0.35s ease;
+    }
+
+    .concern-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+      transition: all 0.3s ease;
+    }
+
+    .concern-cta {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      transition: color 0.35s ease;
+    }
+
+    /* ---- HOVER STATE ---- */
+
+    .concern:hover .concern-img-wrap {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 0;
+    }
+
+    .concern:hover .concern-img-wrap img {
+      filter: blur(4px) brightness(0.38);
+      transform: scale(1.08);
+      height: 100%;
+      width: 100%;
+    }
+
+    .concern:hover .concern-body {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+      background: transparent;
+    }
+
+    .concern:hover .concern-body p {
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .concern:hover .concern-icon {
+      display: none;
+    }
+
+    .concern:hover .concern-cta {
+      color: var(--gold-light);
+    }
+
+    /* ================= Services ================= */
+    .service {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column
+    }
+
+    .service-img {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s ease
+    }
+
+    .service:hover .service-img img {
+      transform: scale(1.05)
+    }
+
+    .service-icon {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: .875rem;
+      background: rgba(255, 255, 255, .95);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-soft)
+    }
+
+    .service-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      flex: 1
+    }
+
+    .service-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      margin: 0;
+      line-height: 1.15
+    }
+
+    .service-body .desc {
+      font-size: .875rem;
+      color: var(--muted);
+      margin: 0
+    }
+
+    .service-body .cta {
+      margin-top: auto;
+      padding-top: .75rem;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--gold)
+    }
+
+    /* ================= Horoscope ================= */
+    .zodiac {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.5rem
+    }
+
+    .zb {
+      padding: .4rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: .75rem;
+      font-weight: 500;
+      transition: all .2s ease
+    }
+
+    .zb:hover {
+      border-color: rgba(184, 137, 59, .5)
+    }
+
+    .zb.active {
+      border-color: var(--gold);
+      background: var(--grad-gold);
+      color: #fff;
+      box-shadow: var(--shadow-soft)
+    }
+
+    .horoscope-card {
+      padding: 2rem;
+      border-radius: 1.5rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-luxury)
+    }
+
+    .horoscope-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between
+    }
+
+    .horoscope-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin: 0
+    }
+
+    .horoscope-summary {
+      margin: 1rem 0 0;
+      font-style: italic;
+      color: rgba(42, 31, 20, .9)
+    }
+
+    .h-rows {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      font-size: .875rem
+    }
+
+    .h-row {
+      display: flex;
+      gap: .75rem
+    }
+
+    .h-row .label {
+      width: 4rem;
+      flex-shrink: 0;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      padding-top: .15rem
+    }
+
+    .h-foot {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 1.5rem;
+      font-size: .75rem
+    }
+
+    /* ================= Kundli / Compat ================= */
+    .rounded-img {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-luxury)
+    }
+
+    .rounded-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .rounded-img.tall {
+      aspect-ratio: 4/5
+    }
+
+    .checklist {
+      margin: 1.5rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      font-size: .875rem
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem
+    }
+
+    .checklist .dot {
+      width: .4rem;
+      height: .4rem;
+      border-radius: 9999px;
+      background: var(--grad-gold);
+      margin-top: .55rem;
+      flex-shrink: 0
+    }
+
+    .compat-card {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft)
+    }
+
+    .score {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 9999px;
+      background: var(--grad-gold);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem
+    }
+
+    /* ================= AI Strip ================= */
+    .ai-card {
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      border-radius: 1.5rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      text-align: center
+    }
+
+    @media(min-width:768px) {
+      .ai-card {
+        padding: 4rem
+      }
+    }
+
+    .ai-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 1.5rem 0 1rem;
+      line-height: 1.15
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem 1rem;
+      border-radius: 9999px;
+      background: var(--cream);
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase
+    }
+
+    /* ================= Products ================= */
+    .products {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(1, 1fr)
+    }
+
+    @media(min-width:640px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(min-width:1024px) {
+      .products {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .product {
+      overflow: hidden
+    }
+
+    .product-img {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s ease
+    }
+
+    .product:hover .product-img img {
+      transform: scale(1.05)
+    }
+
+    .sale-tag {
+      position: absolute;
+      top: .75rem;
+      left: .75rem;
+      background: var(--grad-gold);
+      color: #fff;
+      padding: .25rem .75rem;
+      border-radius: 9999px;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase
+    }
+
+    .product-body {
+      padding: 1.25rem
+    }
+
+    .product-cat {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted)
+    }
+
+    .product-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.125rem;
+      line-height: 1.3;
+      margin: .25rem 0 0
+    }
+
+    .product-rating {
+      margin-top: .5rem;
+      font-size: .75rem;
+      color: var(--muted)
+    }
+
+    .product-price {
+      margin-top: .75rem;
+      display: flex;
+      align-items: baseline;
+      gap: .5rem
+    }
+
+    .product-price .now {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600
+    }
+
+    .product-price .was {
+      font-size: .75rem;
+      color: var(--muted);
+      text-decoration: line-through
+    }
+
+    /* ================= Astrologers ================= */
+    .astro {
+      padding: 1.5rem;
+      text-align: center
+    }
+
+    .astro img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 9999px;
+      object-fit: cover;
+      margin: 0 auto;
+      box-shadow: 0 0 0 4px var(--cream)
+    }
+
+    .astro h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      margin: 1rem 0 .25rem
+    }
+
+    .astro .meta {
+      font-size: .75rem;
+      color: var(--muted)
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .25rem;
+      margin-top: .75rem
+    }
+
+    .tag {
+      background: var(--cream);
+      padding: .15rem .55rem;
+      border-radius: 9999px;
+      font-size: .65rem
+    }
+
+    .astro-price {
+      margin-top: 1rem;
+      font-size: .75rem;
+      color: var(--muted)
+    }
+
+    .astro-price b {
+      color: var(--espresso)
+    }
+
+    .astro-cta {
+      margin-top: 1rem;
+      display: flex;
+      gap: .5rem
+    }
+
+    .astro-cta button {
+      flex: 1;
+      padding: .5rem;
+      border-radius: 9999px;
+      font-size: .75rem;
+      font-weight: 500
+    }
+
+    /* ================= Testimonials ================= */
+    .tm {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .tm .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1
+    }
+
+    .tm .who {
+      margin-top: auto;
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem
+    }
+
+    .tm .who img {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      object-fit: cover
+    }
+
+    .tm .who .name {
+      font-size: .875rem;
+      font-weight: 500
+    }
+
+    .tm .who .city {
+      font-size: .7rem;
+      color: var(--muted)
+    }
+
+    /* ================= Trust ================= */
+    .trust-card {
+      padding: 2rem;
+      text-align: center
+    }
+
+    .trust-card .n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.25rem;
+      background: var(--grad-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 600
+    }
+
+    .trust-card .l {
+      margin-top: .5rem;
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    /* ================= FAQ ================= */
+    .faq-wrap {
+      max-width: 48rem;
+      margin: 0 auto
+    }
+
+    .faq {
+      padding: 1.25rem 1.5rem;
+      margin-bottom: .75rem
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none
+    }
+
+    .faq summary::after {
+      content: "+";
+      color: var(--gold);
+      font-size: 1.5rem;
+      transition: transform .2s
+    }
+
+    .faq[open] summary::after {
+      transform: rotate(45deg)
+    }
+
+    .faq p {
+      margin: .75rem 0 0;
+      font-size: .875rem;
+      color: var(--muted)
+    }
+
+    /* ================= Footer ================= */
+    footer {
+      margin-top: 3rem;
+      background: var(--grad-cream);
+      border-top: 1px solid var(--border)
+    }
+
+    .foot {
+      display: grid;
+      gap: 3rem;
+      padding: 4rem 0;
+      grid-template-columns: 1fr
+    }
+
+    @media(min-width:768px) {
+      .foot {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .foot h4 {
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted);
+      margin: 0 0 1rem
+    }
+
+    .foot ul {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      font-size: .875rem;
+      color: rgba(42, 31, 20, .78)
+    }
+
+    .foot .news {
+      display: flex;
+      gap: .5rem;
+      margin-top: 1rem
+    }
+
+    .foot .news input {
+      flex: 1;
+      padding: .5rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: .875rem;
+      font-family: inherit;
+      outline: none
+    }
+
+    .foot .news input:focus {
+      box-shadow: 0 0 0 3px rgba(184, 137, 59, .2)
+    }
+
+    .foot .news button {
+      padding: .5rem 1rem;
+      border-radius: 9999px;
+      background: var(--grad-gold);
+      color: #fff;
+      font-size: .875rem;
+      font-weight: 500
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(230, 217, 190, .6);
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: .75rem;
+      color: var(--muted)
+    }
+
+    /* small helpers */
+    .flex-between {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem
+    }
+
+    .hide-mobile {
+      display: none
+    }
+
+    @media(min-width:768px) {
+      .hide-mobile {
+        display: inline-flex
+      }
+    }
+
+    /* Hindi Text Styling */
+    [lang="hi"] {
+      font-family: 'Tiro Devanagari', serif;
+      font-size: medium;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo"><span class="logo-mark">✦</span>Astro Satguru<span
+          class="gradient-gold-text">.</span></a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#shop">Shop</a>
+        <a href="#astrologers">Astrologers</a>
+      </nav>
+      <div class="nav-right">
+        <button id="translateBtn" class="translate-btn" title="Translate Page">अ</button>
+        <a href="#astrologers" class="btn btn-outline hide-mobile">Talk to an astrologer</a>
+        <button class="icon-btn" aria-label="Cart">🛍</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <img
+        src="https://res.cloudinary.com/dzrg0utcm/image/upload/v1779692948/ChatGPT_Image_May_25_2026_12_20_50_PM_rvnud1.png"
+        alt="Hero Background">
+      <!-- <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dzrg0utcm/video/upload/v1779692192/tmpa51cuo5__ojrjbu.mp4"
+          type="video/mp4"> -->
+      </video>
+    </div>
+
+    <!-- Scrolling Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="ticker-track"></div>
+    </div>
+
+    <div class="container hero-inner">
+      <!-- Left: Main Copy -->
+      <div class="hero-copy">
+        <span class="hero-badge">✦ AI-powered Vedic Astrology</span>
+        <h1 id="hero-h1">Your trust is <em>our identity</em></h1>
+        <p id="hero-sub">Get personalized horoscopes, Kundli matching, and live astrology guidance—all in one place.</p>
+        <div class="hero-ctas">
+          <a href="#horoscope" class="btn btn-lg btn-gold">Get Your Horoscope</a>
+          <a href="#kundli" class="btn btn-lg btn-ghost-light">Generate Kundli</a>
+          <a href="#astrologers" class="btn btn-lg btn-ghost-light">Talk to an Astrologer</a>
+          <a href="#shop" class="btn btn-lg btn-ghost-light">Visit Shop</a>
+        </div>
+      </div>
+
+      <!-- Right: Pricing Banner -->
+      <div class="pricing-banner">
+        <p class="eyebrow" style="color:var(--gold-light); margin-bottom:.85rem; text-align:center; font-size:10px">Ask
+          the AI Sage</p>
+        <div class="price-row">
+          <span class="price-label">1 Question</span>
+          <span class="price-amt">₹99</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">2 Questions</span>
+          <span class="price-amt">₹149</span>
+        </div>
+        <div class="price-row best">
+          <span class="price-label">Unlimited</span>
+          <span class="price-amt">₹299</span>
+          <span class="best-tag">Best </span>
+        </div>
+        <a href="#" class="btn btn-gold"
+          style="width:100%; justify-content:center; margin-top:1.25rem; font-size:.8rem">Start Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated Astrologer Strip -->
+  <div class="astro-strip">
+    <div class="astro-float" id="astro-float"></div>
+  </div>
+
+  <!-- Concerns -->
+  <!-- Concerns Section HTML (replace existing) -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What's troubling you?</p>
+        <h2 class="serif">The Stars have answers.</h2>
+      </div>
+      <div id="concerns" class="grid grid-4" style="margin-top:3rem"></div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Our Services</p>
+        <h2 class="serif">Six ways to read your stars.</h2>
+      </div>
+      <div id="services-grid" class="grid grid-3-md" style="margin-top:3rem"></div>
+    </div>
+  </section>
+
+  <!-- Horoscope -->
+  <section id="horoscope" class="bg-cream-soft">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Daily horoscope</p>
+        <h2 class="serif" style="font-size:clamp(2rem,4vw,3rem); margin:.75rem 0 0; line-height:1.1">What the stars say
+          today?</h2>
+        <p class="muted" style="max-width:28rem; margin-top:1rem">Choose your zodiac sign and get personalized
+          AI-powered Vedic insights.</p>
+        <div id="zodiac" class="zodiac"></div>
+      </div>
+      <div id="horoscope-card" class="horoscope-card"></div>
+    </div>
+  </section>
+
+  <!-- Kundli -->
+  <section id="kundli">
+    <div class="container two-col">
+      <div class="rounded-img">
+        <img src="https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?auto=format&fit=crop&w=1400&q=80"
+          alt="Vedic Kundli chart" />
+      </div>
+      <div>
+        <p class="eyebrow">Janam Kundli</p>
+        <h2 class="serif" style="font-size:clamp(2rem,4vw,3rem); margin:.75rem 0 0; line-height:1.1">Get your astrology
+          reading in seconds</h2>
+        <p class="muted" style="margin-top:1rem">A complete Vedic birth chart with planetary placements, dasha periods
+          and ascendant analysis—rendered in a beautifully readable format.</p>
+        <ul class="checklist">
+          <li><span class="dot"></span>Ascendant & Moon sign analysis</li>
+          <li><span class="dot"></span>Vimshottari dasha timeline</li>
+          <li><span class="dot"></span>House-by-house interpretation</li>
+          <li><span class="dot"></span>Personalised remedies</li>
+        </ul>
+        <a href="#" class="btn btn-lg btn-gold" style="margin-top:2rem">Generate my Kundli</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compatibility -->
+  <section class="bg-cream">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Compatibility</p>
+        <h2 class="serif" style="font-size:clamp(2rem,4vw,3rem); margin:.75rem 0 0; line-height:1.1">Two souls, one
+          perfect match.</h2>
+        <p class="muted" style="margin-top:1rem">Ashtakoot Guna Milan combined with AI interpretation reveals emotional,
+          mental and karmic harmony.</p>
+        <div class="compat-card">
+          <div class="score">28</div>
+          <div>
+            <p class="eyebrow" style="color:var(--muted); font-weight:500">Sample match score</p>
+            <p class="serif" style="font-size:1.25rem; margin:.15rem 0">Aanya & Ishaan — Strongly aligned</p>
+            <p class="muted" style="font-size:.75rem; margin:0">Emotional 82% · Mental 74% · Spiritual 88%</p>
+          </div>
+        </div>
+        <a href="#" class="btn btn-lg btn-gold" style="margin-top:2rem">Check compatibility</a>
+      </div>
+      <div class="rounded-img tall">
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80"
+          alt="Couple compatibility" />
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Strip -->
+  <section>
+    <div class="container">
+      <div class="ai-card">
+        <span class="pill">✦ AI Sage</span>
+        <h2>Based on traditional Astrology, explained in your language.</h2>
+        <p class="muted" style="max-width:42rem; margin:0 auto">Our AI is grounded in Brihat Parashara Hora Shastra,
+          Phaladeepika and centuries of Vedic tradition—then refined by master astrologers so every reading feels human,
+          warm and precise.</p>
+        <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center">
+          <a href="#" class="btn btn-gold">Ask the AI sage</a>
+          <a href="#services" class="btn btn-outline">Explore services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop -->
+  <section id="shop" class="bg-cream-soft">
+    <div class="container">
+      <div class="flex-between">
+        <div>
+          <p class="eyebrow">Sacred objects</p>
+          <h2 class="serif" style="font-size:clamp(2rem,4vw,3rem); margin:.75rem 0 0">Crafted with intention.</h2>
+        </div>
+        <a href="#" class="text-gold hide-mobile" style="font-size:.875rem; font-weight:500">View all →</a>
+      </div>
+      <div id="products" class="products" style="margin-top:3rem"></div>
+    </div>
+  </section>
+
+  <!-- Astrologers -->
+  <section id="astrologers">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Verified astrologers</p>
+        <h2 class="serif">Wisdom, with a human voice.</h2>
+      </div>
+      <div id="astrologers-grid" class="products" style="margin-top:3rem"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Words from seekers</p>
+        <h2 class="serif">Loved across India.</h2>
+      </div>
+      <div id="testimonials" class="grid grid-3-md" style="margin-top:3rem"></div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section style="padding:4rem 0">
+    <div class="container">
+      <div id="trust" class="grid grid-4"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container faq-wrap">
+      <div class="section-head">
+        <p class="eyebrow">Questions</p>
+        <h2 class="serif">Frequently asked.</h2>
+      </div>
+      <div id="faq" style="margin-top:3rem"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div>
+        <div class="logo"><span class="logo-mark">✦</span>Astro Satguru</div>
+        <p class="muted" style="margin-top:1rem; max-width:18rem; font-size:.875rem">Experience modern Vedic astrology
+          with AI-powered insights and spiritual guidance rooted in India's ancient wisdom.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Daily horoscope</li>
+          <li>Kundli</li>
+          <li>Compatibility</li>
+          <li>Full report</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li>Rings & gemstones</li>
+          <li>Malas & rudraksha</li>
+          <li>Yantras</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p class="muted" style="font-size:.875rem; margin:0">Receive your weekly cosmic forecast.</p>
+        <form class="news" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">© <span id="yr"></span> Astro Satguru. Crafted with devotion in Bharat.</div>
+  </footer>
+
+  <!-- ==================== MAIN SCRIPT ==================== -->
+  <script>
+    /* ---------- Concerns ---------- */
+    /* ---------- Concerns ---------- */
+    const concerns = [
+      {
+        q: "Love Life Problems?",
+        i: "💔",
+        img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
+        href: "#services"
+      },
+      {
+        q: "Looking for a life partner?",
+        i: "👥",
+        img: "https://www.shutterstock.com/image-photo/romantic-engagement-moment-couple-exchanges-260nw-2737811993.jpg",
+        href: "#services"
+      },
+      {
+        q: "Things off with your partner?",
+        i: "💔",
+        img: "https://thumbs.dreamstime.com/b/sad-couple-sitting-back-to-back-argument-sad-couple-sitting-back-to-back-ground-argument-breakup-concept-116795260.jpg",
+        href: "#services"
+      },
+      {
+        q: "Marriage delay?",
+        i: "💎",
+        img: "https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5kaWFuJTIwbWFycmlhZ2V8ZW58MHx8MHx8fDA%3D",
+        href: "#services"
+      },
+      {
+        q: "Difficulty Getting a Job?",
+        i: "💼",
+        img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
+        href: "#services"
+      },
+      {
+        q: "Business not growing?",
+        i: "📈",
+        img: "data:image/jpeg;base64,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",
+        href: "#services"
+      },
+      {
+        q: "Health and energy low?",
+        i: "🌿",
+        img: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
+        href: "#services"
+      },
+      {
+        q: "Financial blocks?",
+        i: "💰",
+        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80",
+        href: "#services"
+      },
+    ];
+
+    document.getElementById("concerns").innerHTML = concerns.map(({ q, i, img, href }) => `
+  <a href="${href}" class="card card-hover concern">
+    <div class="concern-img-wrap">
+      <img src="${img}" alt="${q}" loading="lazy" />
+    </div>
+    <div class="concern-body">
+      <span class="concern-icon">${i}</span>
+      <p>${q}</p>
+      <span class="concern-cta">Find guidance →</span>
+    </div>
+  </a>`).join("");
+
+    /* ---------- Services ---------- */
+    const services = [
+      { t: "Daily Horoscope", s: "Personalised daily guidance for your zodiac sign.", img: "photo-1465101162946-4377e57745c3", cta: "Read today's horoscope", i: "☀" },
+      { t: "Kundli / Birth Chart", s: "Generate your complete Vedic birth chart in seconds.", img: "photo-1532968961962-8a0cb3a2d4f5", cta: "Generate my Kundli", i: "★" },
+      { t: "Compatibility Match", s: "Discover the harmony between two souls.", img: "photo-1610030469983-98e550d6193c", cta: "Check compatibility", i: "♥" },
+      { t: "Full Astrology Report", s: "A complete life reading covering every house.", img: "photo-1602192509154-0b900ee1f851", cta: "Get my full report", i: "📜" },
+      { t: "AI Interpretation", s: "Ask any astrology question, get instant clarity.", img: "photo-1545389336-cf090694435e", cta: "Ask the AI sage", i: "✦" },
+      { t: "Talk to an Astrologer", s: "Live consultation with verified Vedic astrologers.", img: "photo-1542736667-069246bdbc6d", customImg: "https://media.istockphoto.com/id/1347480695/photo/beard-priest-holy-astrologer-guru-or-jyotishi-placing-cowrie-shells-on-chart-and-counting-to.jpg?s=612x612&w=0&k=20&c=Fa0mG3pfB7X_odMXwU4rM0lyyVFIradeKZjgmo3sd0Y=", cta: "Book a session", i: "💬" },
+    ];
+    document.getElementById("services-grid").innerHTML = services.map(s => `
+      <a href="#" class="card card-hover service">
+        <div class="service-img">
+          <img src="${s.customImg ? s.customImg : `https://images.unsplash.com/${s.img}?auto=format&fit=crop&w=1200&q=80`}" alt="${s.t}" loading="lazy" />
+          <span class="service-icon">${s.i}</span>
+        </div>
+        <div class="service-body">
+          <h3>${s.t}</h3>
+          <p class="desc">${s.s}</p>
+          <span class="cta">${s.cta} →</span>
+        </div>
+      </a>`).join("");
+
+    /* ---------- Horoscope ---------- */
+    const ZODIAC = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+    const horoscopes = {
+      Leo: { summary: "Jupiter's gentle gaze opens a door you've been quietly knocking on.", love: "A warm conversation shifts a hesitant heart.", career: "Recognition arrives from an unexpected quarter.", health: "Walks at dusk restore your fire.", n: 7, c: "Saffron" },
+    };
+    function renderHoroscope(sign) {
+      const d = horoscopes[sign] || { summary: `Today the cosmos favours ${sign}—lead with intention.`, love: "A small gesture deepens trust.", career: "Focus brings unexpected reward.", health: "Hydrate and breathe deeply.", n: (sign.length % 9) + 1, c: "Gold" };
+      const today = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+      document.getElementById("horoscope-card").innerHTML = `
+        <div class="horoscope-head"><h3>${sign}</h3><span class="muted" style="font-size:.75rem">${today}</span></div>
+        <p class="horoscope-summary">"${d.summary}"</p>
+        <div class="h-rows">
+          ${[["Love", d.love], ["Career", d.career], ["Health", d.health]].map(([l, v]) => `<div class="h-row"><span class="label">${l}</span><span>${v}</span></div>`).join("")}
+        </div>
+        <div class="h-foot">
+          <span><span class="muted">Lucky number:</span> <b>${d.n}</b></span>
+          <span><span class="muted">Lucky color:</span> <b>${d.c}</b></span>
+        </div>`;
+    }
+    document.getElementById("zodiac").innerHTML = ZODIAC.map(z => `<button data-z="${z}" class="zb">${z}</button>`).join("");
+    document.querySelectorAll(".zb").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".zb").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      renderHoroscope(b.dataset.z);
+    }));
+    document.querySelector('.zb[data-z="Leo"]').click();
+
+    /* ---------- Products ---------- */
+    const inr = n => "₹" + n.toLocaleString("en-IN");
+    const products = [
+      { n: "Panchdhatu Saturn Ring", c: "Rings", p: 2499, o: 3299, r: 4.8, img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80" },
+      { n: "Emerald Prosperity Ring", c: "Rings", p: 5899, r: 4.9, img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS61OjeHUM-dpbf68VWPzW4WIJVtfv5lQIA_tAWvOnvjxSqWaor95sKp8Fl_aIPMCl4Ldk0qgeHm9XnzY1mDKC1fKxF1Bh5PA" },
+      { n: "Tiger Eye Bracelet", c: "Bracelets", p: 1299, o: 1699, r: 4.7, img: "https://m.media-amazon.com/images/I/511PFs9OdjL.jpg" },
+      { n: "Sacred Sandalwood Mala 108", c: "Malas", p: 1899, r: 4.9, img: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSQircb5WO-A0-yLa2xOI1McTme1zfP5OcUNYcU8tbjFJnRFa3aSYW0Sdlh2J41X6Agjc4sRo0QwIg49cOMO8B_YkjZGtLXg17LEHbfPYo" },
+    ];
+    document.getElementById("products").innerHTML = products.map(p => `
+      <a href="#" class="card card-hover product">
+        <div class="product-img">
+          <img src="${p.img}" alt="${p.n}" loading="lazy" />
+          ${p.o ? `<span class="sale-tag">Sale</span>` : ""}
+        </div>
+        <div class="product-body">
+          <p class="product-cat">${p.c}</p>
+          <h3>${p.n}</h3>
+          <div class="product-rating">★ ${p.r}</div>
+          <div class="product-price">
+            <span class="now">${inr(p.p)}</span>
+            ${p.o ? `<span class="was">${inr(p.o)}</span>` : ""}
+          </div>
+        </div>
+      </a>`).join("");
+
+    /* ---------- Astrologers ---------- */
+    const astros = [
+      { n: "Acharya Vikram Sharma", s: ["Vedic", "Marriage", "Career"], y: 18, r: 4.9, p: 35, img: "photo-1559839734-2b71ea197ec2" },
+      { n: "Pandit Meera Joshi", s: ["KP System", "Love", "Numerology"], y: 12, r: 4.8, p: 28, img: "photo-1573496359142-b8d87734a5a2" },
+      { n: "Guru Rajan Iyer", s: ["Nadi", "Spiritual", "Remedies"], y: 22, r: 4.9, p: 42, img: "photo-1507003211169-0a1dd7228f2d" },
+      { n: "Shastri Anuj Tripathi", s: ["Vastu", "Business", "Finance"], y: 15, r: 4.8, p: 32, img: "photo-1544005313-94ddf0286df2" },
+    ];
+    document.getElementById("astrologers-grid").innerHTML = astros.map(a => `
+      <div class="card astro">
+        <img src="https://images.unsplash.com/${a.img}?auto=format&fit=crop&w=400&q=80" alt="${a.n}" />
+        <h3>${a.n}</h3>
+        <p class="meta">${a.y} yrs · ★ ${a.r}</p>
+        <div class="tags">${a.s.map(x => `<span class="tag">${x}</span>`).join("")}</div>
+        <p class="astro-price">from <b>${inr(a.p)}</b>/min</p>
+        <div class="astro-cta">
+          <button class="btn-outline" style="border:1px solid var(--border); background:#fff">Chat</button>
+          <button class="btn-gold" style="background:var(--grad-gold); color:#fff">Call</button>
+        </div>
+      </div>`).join("");
+
+    /* ---------- Testimonials ---------- */
+    const tms = [
+      { n: "Aanya R.", c: "Mumbai", img: "photo-1494790108377-be9c29b29330", t: "The Kundli reading mirrored everything I'd silently been feeling. The remedies actually shifted my year." },
+      { n: "Ishaan M.", c: "Bengaluru", img: "photo-1438761681033-6461ffad8d80", t: "Beautiful interface, deeply thoughtful interpretations. Akasha is what spiritual tech should look like." },
+      { n: "Priya S.", c: "Delhi", img: "photo-1531123897727-8f129e1688ce", t: "My consultation with Pandit Meera was extraordinary—calming, precise and full of warmth." },
+    ];
+    document.getElementById("testimonials").innerHTML = tms.map(t => `
+      <div class="card tm">
+        <span class="quote">"</span>
+        <p style="color:rgba(42,31,20,.85); margin:0">${t.t}</p>
+        <div class="who">
+          <img src="https://images.unsplash.com/${t.img}?auto=format&fit=crop&w=200&q=80" alt="" />
+          <div><div class="name">${t.n}</div><div class="city">${t.c}</div></div>
+        </div>
+      </div>`).join("");
+
+    /* ---------- Trust ---------- */
+    const trust = [["1.2M+", "Readings delivered"], ["150+", "Verified astrologers"], ["4.9★", "Average rating"], ["100%", "Secure & private"]];
+    document.getElementById("trust").innerHTML = trust.map(([n, l]) => `
+      <div class="card trust-card"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+
+    /* ---------- FAQ ---------- */
+    const faqs = [
+      ["Are the readings really personalised?", "Yes—every reading is generated from your exact birth details (date, time, place) and refined by AI trained on classical Jyotish texts."],
+      ["How accurate is the AI interpretation?", "Our AI is grounded in Brihat Parashara Hora Shastra and Phaladeepika, then reviewed by senior astrologers for tone and nuance."],
+      ["Are the gemstones certified?", "Every gemstone ships with a lab certificate of authenticity from IGI or GIA."],
+    ];
+    document.getElementById("faq").innerHTML = faqs.map(f => `
+      <details class="card faq"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("");
+
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    /* ---------- Ticker ---------- */
+    const tickerEn = [
+      "When will I meet my soulmate or true love? 💕",
+      "Will I have a love marriage or arranged marriage? 💍",
+      "Will my ex come back into my life? 🔄",
+      "When will I get a good job or career breakthrough? 💼",
+      "Will my business succeed and grow? 📈",
+    ];
+    const tickerHi = [
+      "मेरी मुलाकात सच्चे प्यार से कब होगी? 💕",
+      "मेरी प्रेम विवाह होगी या अरेंज्ड? 💍",
+      "क्या मेरा पूर्व-प्रेमी वापस आएगा? 🔄",
+      "मुझे अच्छी नौकरी कब मिलेगी? 💼",
+      "क्या मेरा व्यापार सफल होगा? 📈",
+    ];
+    function buildTicker(items) {
+      const doubled = [...items, ...items];
+      return doubled.map(q => `<span class="ticker-item">${q}<span class="sep">✦</span></span>`).join("");
+    }
+    const tt = document.getElementById("ticker-track");
+    if (tt) tt.innerHTML = buildTicker(tickerEn);
+  </script>
+
+  <!-- ==================== TRANSLATE SCRIPT ==================== -->
+  <script>
+    let hindi = false;
+    const translations = {
+      "AI-powered Vedic Astrology": "एआई-संचालित वैदिक ज्योतिष",
+      "Your trust is": "आपका विश्वास ही ",
+      "our identity": "हमारी पहचान है",
+      "Get personalized horoscopes, Kundli matching, and live astrology guidance—all in one place.": "व्यक्तिगत राशिफल, कुंडली मिलान, और लाइव ज्योतिष मार्गदर्शन—एक ही जगह पर।",
+      "Get Your Horoscope": "अपना राशिफल प्राप्त करें",
+      "Generate Kundli": "कुंडली जेनरेट करें",
+      "Talk to an Astrologer": "ज्योतिषी से बात करें",
+      "Visit Shop": "शॉप देखें",
+      "Ask the AI Sage": "एआई ऋषि से पूछें",
+      "1 Question": "1 प्रश्न",
+      "2 Questions": "2 प्रश्न",
+      "Unlimited": "असीमित",
+      "Best Value": "सर्वोत्तम मूल्य",
+      "Start Now →": "अभी शुरू करें →",
+      "Speak to a Vedic sage — live, right now": "अभी एक वैदिक ऋषि से बात करें",
+      "Available 24 × 7 · Hindi & English": "24×7 उपलब्ध · हिंदी और अंग्रेज़ी",
+      "What's troubling you?": "आपको किस बात की चिंता है?",
+      "The Stars have answers.": "सितारों के पास जवाब हैं।",
+      "Difficulty Getting a Job?": "नौकरी पाने में दिक्कत?",
+      "Looking for a life partner?": "जीवन साथी की तलाश है?",
+      "Things off with your partner?": "साथी के साथ कुछ गड़बड़ है?",
+      "Marriage delay?": "विवाह में देरी?",
+      "Career confusion?": "करियर में भ्रम?",
+      "Business not growing?": "व्यापार बढ़ नहीं रहा?",
+      "Health and energy low?": "स्वास्थ्य और ऊर्जा कम है?",
+      "Financial blocks?": "आर्थिक बाधाएं?",
+      "Find guidance →": "मार्गदर्शन खोजें →",
+      "Our Services": "हमारी सेवाएँ",
+      "Six ways to read your stars.": "अपने सितारे को पढ़ने के छह तरीके।",
+      "Daily horoscope": "दैनिक राशिफल",
+      "What the stars say today?": "आज सितारे क्या कहते हैं?",
+      "Choose your zodiac sign and get personalized AI-powered Vedic insights.": "अपनी राशि चुनें और व्यक्तिगत एआई-संचालित वैदिक जानकारी प्राप्त करें।",
+      "Janam Kundli": "जन्म कुंडली",
+      "Get your astrology reading in seconds": "कुछ ही सेकंड में अपनी ज्योतिषीय जानकारी पाएं",
+      "A complete Vedic birth chart with planetary placements, dasha periods and ascendant analysis—rendered in a beautifully readable format.": "ग्रह प्लेसमेंट, दशा अवधि और आरोही विश्लेषण के साथ एक पूर्ण वैदिक जन्म चार्ट।",
+      "Ascendant & Moon sign analysis": "आरोही और चंद्र चिन्ह विश्लेषण",
+      "Vimshottari dasha timeline": "विंशोत्तरी दशा समयरेखा",
+      "House-by-house interpretation": "घर-दर-घर व्याख्या",
+      "Personalised remedies": "व्यक्तिगत उपचार",
+      "Generate my Kundli": "मेरी कुंडली जेनरेट करें",
+      "Compatibility": "संगतता",
+      "Two souls, one perfect match.": "दो आत्माएं, एक दिव्य मिलन।",
+      "Ashtakoot Guna Milan combined with AI interpretation reveals emotional, mental and karmic harmony.": "एआई व्याख्या के साथ अष्टकूट गुण मिलान भावनात्मक, मानसिक और कर्मिक सामंजस्य प्रकट करता है।",
+      "Sample match score": "नमूना मैच स्कोर",
+      "Strongly aligned": "दृढ़ता से संरेखित",
+      "Check compatibility": "संगतता जांचें",
+      "Based on traditional Astrology, explained in your language.": "पारंपरिक ज्योतिष ज्ञान, आपकी अपनी भाषा में।",
+      "Our AI is grounded in Brihat Parashara Hora Shastra, Phaladeepika and centuries of Vedic tradition—then refined by master astrologers so every reading feels human, warm and precise.": "हमारा एआई ब्रिहत पराशर होरा शास्त्र, फलदीपिका और वैदिक परंपरा की सदियों में निहित है।",
+      "Ask the AI sage": "एआई ऋषि से पूछें",
+      "Explore services": "सेवाओं का अन्वेषण करें",
+      "Sacred objects": "पवित्र वस्तुएं",
+      "Crafted with intention.": "इरादे के साथ तैयार।",
+      "View all →": "सभी देखें →",
+      "Verified astrologers": "सत्यापित ज्योतिषी",
+      "Wisdom, with a human voice.": "ज्ञान, एक मानवीय आवाज के साथ।",
+      "Words from seekers": "साधकों के शब्द",
+      "Loved across India.": "पूरे भारत में प्रिय।",
+      "Questions": "प्रश्न",
+      "Frequently asked.": "अक्सर पूछे जाते हैं।",
+      "Services": "सेवाएं",
+      "Shop": "शॉप",
+      "Newsletter": "समाचार पत्र",
+      "Receive your weekly cosmic forecast.": "अपना साप्ताहिक ब्रह्मांडीय पूर्वानुमान प्राप्त करें।",
+      "Join": "शामिल हों",
+      "Home": "होम",
+      "Astrologers": "ज्योतिषी",
+      "Talk to an astrologer": "ज्योतिषी से बात करें"
+    };
+
+    document.getElementById("translateBtn").addEventListener("click", () => {
+      hindi = !hindi;
+      document.getElementById("translateBtn").innerText = hindi ? "A" : "अ";
+      hindi ? translatePage() : revertPage();
+    });
+
+    function translatePage() {
+      document.querySelectorAll("*").forEach(el => {
+        const children = el.childNodes;
+        children.forEach(node => {
+          if (node.nodeType === 3) {
+            const txt = node.textContent.trim();
+            if (txt && translations[txt]) {
+              el.setAttribute("data-original-text", node.textContent);
+              node.textContent = node.textContent.replace(txt, translations[txt]);
+              el.setAttribute("lang", "hi");
+            }
+          }
+        });
+      });
+      const tt = document.getElementById("ticker-track");
+      if (tt && !tt.getAttribute("data-original-html")) {
+        tt.setAttribute("data-original-html", tt.innerHTML);
+        tt.innerHTML = buildTicker(tickerHi);
+      }
+    }
+
+    function revertPage() {
+      document.querySelectorAll("[data-original-text]").forEach(el => {
+        el.childNodes.forEach(node => {
+          if (node.nodeType === 3) {
+            const orig = el.getAttribute("data-original-text");
+            if (orig) node.textContent = orig;
+          }
+        });
+        el.removeAttribute("data-original-text");
+        el.removeAttribute("lang");
+      });
+      const tt = document.getElementById("ticker-track");
+      if (tt && tt.getAttribute("data-original-html")) {
+        tt.innerHTML = tt.getAttribute("data-original-html");
+        tt.removeAttribute("data-original-html");
+      }
+    }
+
+    /* ---------- Astro Strip ---------- */
+    const astroItems = [
+      { img: "https://media.istockphoto.com/id/1347480695/photo/beard-priest-holy-astrologer-guru-or-jyotishi-placing-cowrie-shells-on-chart-and-counting-to.jpg?s=612x612&w=0&k=20&c=Fa0mG3pfB7X_odMXwU4rM0lyyVFIradeKZjgmo3sd0Y=", name: "Speak to a Vedic sage — live, right now", sub: "Available 24 × 7 · Hindi & English" },
+      { img: "https://media.istockphoto.com/id/1347480695/photo/beard-priest-holy-astrologer-guru-or-jyotishi-placing-cowrie-shells-on-chart-and-counting-to.jpg?s=612x612&w=0&k=20&c=Fa0mG3pfB7X_odMXwU4rM0lyyVFIradeKZjgmo3sd0Y=", name: "Acharya Vikram Sharma", sub: "18 yrs · Vedic · Marriage · Career" },
+      { img: "https://media.istockphoto.com/id/1347480695/photo/beard-priest-holy-astrologer-guru-or-jyotishi-placing-cowrie-shells-on-chart-and-counting-to.jpg?s=612x612&w=0&k=20&c=Fa0mG3pfB7X_odMXwU4rM0lyyVFIradeKZjgmo3sd0Y=", name: "Guru Rajan Iyer", sub: "22 yrs · Nadi · Spiritual · Remedies" },
+      { img: "https://media.istockphoto.com/id/1347480695/photo/beard-priest-holy-astrologer-guru-or-jyotishi-placing-cowrie-shells-on-chart-and-counting-to.jpg?s=612x612&w=0&k=20&c=Fa0mG3pfB7X_odMXwU4rM0lyyVFIradeKZjgmo3sd0Y=", name: "Pandit Meera Joshi", sub: "12 yrs · KP System · Love · Numerology" },
+      { img: "https://media.istockphoto.com/id/1347480695/photo/beard-priest-holy-astrologer-guru-or-jyotishi-placing-cowrie-shells-on-chart-and-counting-to.jpg?s=612x612&w=0&k=20&c=Fa0mG3pfB7X_odMXwU4rM0lyyVFIradeKZjgmo3sd0Y=", name: "Shastri Anuj Tripathi", sub: "15 yrs · Vastu · Business · Finance" },
+    ];
+
+    function buildAstroItem({ img, name, sub }) {
+      return `
+        <div style="display:flex; align-items:center; gap:1rem; flex-shrink:0;">
+          <div class="astro-circle">
+            <img src="${img}" alt="${name}" />
+          </div>
+          <div class="astro-strip-text">
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--espresso); font-weight:500; margin:0">${name}</p>
+            <p style="font-size:.75rem; color:var(--muted); margin:0">${sub}</p>
+          </div>
+        </div>
+        <span style="color:var(--gold); opacity:.5; font-size:1.2rem; flex-shrink:0;">✦</span>`;
+    }
+
+    const stripEl = document.getElementById("astro-float");
+    if (stripEl) {
+      // Build one set, then duplicate it exactly for seamless loop
+      const oneSet = astroItems.map(buildAstroItem).join("");
+      stripEl.innerHTML = oneSet + oneSet;
+    }
+  </script>
+</body>
+
+</html>
